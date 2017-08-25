@@ -58,9 +58,6 @@ import UIKit
         super.layoutSubviews()
         
         container.frame = bounds
-        removeSlices()
-        slices = generateSlices(models)
-        showSlices()
     }
     
     public fileprivate(set) var container: CALayer = CALayer()
