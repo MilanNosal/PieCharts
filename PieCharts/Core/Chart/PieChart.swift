@@ -54,6 +54,15 @@ import UIKit
 
     // MARK: -
     
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        container.frame = bounds
+        removeSlices()
+        slices = generateSlices(models)
+        showSlices()
+    }
+    
     public fileprivate(set) var container: CALayer = CALayer()
     
     public fileprivate(set) var slices: [PieSlice] = []
