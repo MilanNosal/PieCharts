@@ -38,7 +38,11 @@ open class PieLineTextLayer: PieChartLayer {
     }
     
     public func addItems(slice: PieSlice) {
-        guard sliceViews[slice] == nil else {return}
+        guard sliceViews[slice] == nil else { return }
+        
+        guard slice.data.model.obj != nil else {
+            return
+        }
         
         let p1 = slice.view.calculatePosition(angle: slice.view.midAngle, p: slice.view.center, offset: slice.view.outerRadius + settings.chartOffset)
         let p2 = slice.view.calculatePosition(angle: slice.view.midAngle, p: slice.view.center, offset: slice.view.outerRadius + settings.segment1Length)
